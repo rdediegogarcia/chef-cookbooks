@@ -1,6 +1,190 @@
-I, [2016-06-23T11:08:59.878177 #1063]  INFO -- default-oraclelinux: -----> Destroying <default-oraclelinux>...
-I, [2016-06-23T11:08:59.975570 #1063]  INFO -- default-oraclelinux: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
-I, [2016-06-23T11:08:59.975802 #1063]  INFO -- default-oraclelinux: root                32553               1021                0                   10:57               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
-I, [2016-06-23T11:09:00.356366 #1063]  INFO -- default-oraclelinux: 2889791fc2c2a9c0ff7f3edda914e683aa6df8942c8739eed7469bd965825d96
-I, [2016-06-23T11:09:02.399572 #1063]  INFO -- default-oraclelinux: 2889791fc2c2a9c0ff7f3edda914e683aa6df8942c8739eed7469bd965825d96
-I, [2016-06-23T11:09:02.426027 #1063]  INFO -- default-oraclelinux: Finished destroying <default-oraclelinux> (0m2.54s).
+I, [2016-06-23T13:08:07.424681 #6545]  INFO -- default-oraclelinux: -----> Cleaning up any prior instances of <default-oraclelinux>
+I, [2016-06-23T13:08:07.424977 #6545]  INFO -- default-oraclelinux: -----> Destroying <default-oraclelinux>...
+I, [2016-06-23T13:08:07.425666 #6545]  INFO -- default-oraclelinux: Finished destroying <default-oraclelinux> (0m0.00s).
+I, [2016-06-23T13:08:07.425895 #6545]  INFO -- default-oraclelinux: -----> Testing <default-oraclelinux>
+I, [2016-06-23T13:08:07.426086 #6545]  INFO -- default-oraclelinux: -----> Creating <default-oraclelinux>...
+I, [2016-06-23T13:08:07.516245 #6545]  INFO -- default-oraclelinux: Sending build context to Docker daemon 66.05 kB
+I, [2016-06-23T13:08:07.519639 #6545]  INFO -- default-oraclelinux: Sending build context to Docker daemon 
+I, [2016-06-23T13:08:07.573288 #6545]  INFO -- default-oraclelinux: Step 0 : FROM oraclelinux:7
+I, [2016-06-23T13:08:07.579365 #6545]  INFO -- default-oraclelinux:  ---> 575e955ac1f9
+I, [2016-06-23T13:08:07.579954 #6545]  INFO -- default-oraclelinux: Step 1 : RUN yum clean all
+I, [2016-06-23T13:08:07.736165 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.737633 #6545]  INFO -- default-oraclelinux:  ---> e674dcba375e
+I, [2016-06-23T13:08:07.738143 #6545]  INFO -- default-oraclelinux: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2016-06-23T13:08:07.756159 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.756602 #6545]  INFO -- default-oraclelinux:  ---> e3c890e859b4
+I, [2016-06-23T13:08:07.757099 #6545]  INFO -- default-oraclelinux: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2016-06-23T13:08:07.773111 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.773639 #6545]  INFO -- default-oraclelinux:  ---> 17e92a7a65f8
+I, [2016-06-23T13:08:07.774050 #6545]  INFO -- default-oraclelinux: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2016-06-23T13:08:07.789927 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.790495 #6545]  INFO -- default-oraclelinux:  ---> 901cafa9e83a
+I, [2016-06-23T13:08:07.791091 #6545]  INFO -- default-oraclelinux: Step 5 : RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi
+I, [2016-06-23T13:08:07.807374 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.807898 #6545]  INFO -- default-oraclelinux:  ---> 62ff50c1e67a
+I, [2016-06-23T13:08:07.808524 #6545]  INFO -- default-oraclelinux: Step 6 : RUN echo kitchen:kitchen | chpasswd
+I, [2016-06-23T13:08:07.824879 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.825478 #6545]  INFO -- default-oraclelinux:  ---> b7fd25638eef
+I, [2016-06-23T13:08:07.825896 #6545]  INFO -- default-oraclelinux: Step 7 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2016-06-23T13:08:07.847556 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.847988 #6545]  INFO -- default-oraclelinux:  ---> 70e262772cf4
+I, [2016-06-23T13:08:07.848536 #6545]  INFO -- default-oraclelinux: Step 8 : RUN mkdir -p /etc/sudoers.d
+I, [2016-06-23T13:08:07.863281 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.863708 #6545]  INFO -- default-oraclelinux:  ---> 132323ceae91
+I, [2016-06-23T13:08:07.864107 #6545]  INFO -- default-oraclelinux: Step 9 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
+I, [2016-06-23T13:08:07.879544 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.880032 #6545]  INFO -- default-oraclelinux:  ---> b628c4d5df1d
+I, [2016-06-23T13:08:07.880610 #6545]  INFO -- default-oraclelinux: Step 10 : RUN chmod 0440 /etc/sudoers.d/kitchen
+I, [2016-06-23T13:08:07.895147 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.895604 #6545]  INFO -- default-oraclelinux:  ---> 4ecb612189cf
+I, [2016-06-23T13:08:07.896123 #6545]  INFO -- default-oraclelinux: Step 11 : RUN [ ! -d /home/kitchen/.ssh ] && mkdir /home/kitchen/.ssh
+I, [2016-06-23T13:08:07.910547 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.910971 #6545]  INFO -- default-oraclelinux:  ---> 3ad146a211e1
+I, [2016-06-23T13:08:07.911523 #6545]  INFO -- default-oraclelinux: Step 12 : RUN chown -R kitchen /home/kitchen/.ssh
+I, [2016-06-23T13:08:07.926187 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.926662 #6545]  INFO -- default-oraclelinux:  ---> 8b9887925c29
+I, [2016-06-23T13:08:07.927158 #6545]  INFO -- default-oraclelinux: Step 13 : RUN chmod 0700 /home/kitchen/.ssh
+I, [2016-06-23T13:08:07.944065 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.944590 #6545]  INFO -- default-oraclelinux:  ---> 4e210feb2acd
+I, [2016-06-23T13:08:07.945028 #6545]  INFO -- default-oraclelinux: Step 14 : RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC06b/AWu1iKLHDQ9qsvYoqTGoYHh3PxP4Z9fI0PM+uj9quxZ0bZ+rE6pLyX3ttNpCsXpJkPLBWIGSlSRr+mSeJY1WMXh42K98rLOVvF5+olhZpMvpc1dNgrXeJuq+WNk/cfZLNzckT1NE0XAWoMLM6XS2RYBcsfWTLSEbqXkFwb+PlWt5OUxwP6ksF0upi+v5vfVPNSnAuvrMGQZGNwgg5fuZAXjQBuBsmMGW9ayoRmI70BK8HwQ0OYJGBNcR/wU1FZljs3Z0hfuyA9FDCbdpWRzOE2jGi8xgOQkWb0t8Qsx1bPt3uRY5IeQHUzj7oeFHWC2G7gw+3TxUzKqlRKo6b kitchen_docker_key' >> /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T13:08:07.964155 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.964791 #6545]  INFO -- default-oraclelinux:  ---> a0135d2693fb
+I, [2016-06-23T13:08:07.965221 #6545]  INFO -- default-oraclelinux: Step 15 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T13:08:07.979670 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.980096 #6545]  INFO -- default-oraclelinux:  ---> 7b2d72e7530f
+I, [2016-06-23T13:08:07.980646 #6545]  INFO -- default-oraclelinux: Step 16 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T13:08:07.995166 #6545]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T13:08:07.995609 #6545]  INFO -- default-oraclelinux:  ---> 313cf7fc1b28
+I, [2016-06-23T13:08:07.996007 #6545]  INFO -- default-oraclelinux: Successfully built 313cf7fc1b28
+I, [2016-06-23T13:08:08.361852 #6545]  INFO -- default-oraclelinux: f97ba1a94674dfb720ffc42d0f9b9db5d99a1621598a3de32fe8069b0d4d0d6b
+I, [2016-06-23T13:08:09.000831 #6545]  INFO -- default-oraclelinux: 0.0.0.0:32784
+I, [2016-06-23T13:08:09.031530 #6545]  INFO -- default-oraclelinux: Waiting for SSH service on localhost:32784, retrying in 3 seconds
+I, [2016-06-23T13:08:12.261732 #6545]  INFO -- default-oraclelinux: [SSH] Established
+I, [2016-06-23T13:08:12.266099 #6545]  INFO -- default-oraclelinux: Finished creating <default-oraclelinux> (0m4.84s).
+I, [2016-06-23T13:08:12.266387 #6545]  INFO -- default-oraclelinux: -----> Converging <default-oraclelinux>...
+W, [2016-06-23T13:08:12.267815 #6545]  WARN -- default-oraclelinux: Running legacy converge for 'Docker' Driver
+I, [2016-06-23T13:08:12.268342 #6545]  INFO -- default-oraclelinux: Preparing files for transfer
+I, [2016-06-23T13:08:12.268551 #6545]  INFO -- default-oraclelinux: Preparing dna.json
+I, [2016-06-23T13:08:12.270357 #6545]  INFO -- default-oraclelinux: Resolving cookbook dependencies with Berkshelf 4.1.1...
+I, [2016-06-23T13:08:12.336950 #6545]  INFO -- default-oraclelinux: Removing non-cookbook files before transfer
+I, [2016-06-23T13:08:12.341397 #6545]  INFO -- default-oraclelinux: Preparing validation.pem
+I, [2016-06-23T13:08:12.342915 #6545]  INFO -- default-oraclelinux: Preparing client.rb
+I, [2016-06-23T13:08:12.534252 #6545]  INFO -- default-oraclelinux: -----> Installing Chef Omnibus (install only if missing)
+I, [2016-06-23T13:08:12.546693 #6545]  INFO -- default-oraclelinux: Downloading https://www.chef.io/chef/install.sh to file /tmp/install.sh
+I, [2016-06-23T13:08:12.548631 #6545]  INFO -- default-oraclelinux: Trying curl...
+I, [2016-06-23T13:08:13.015975 #6545]  INFO -- default-oraclelinux: Download complete.
+I, [2016-06-23T13:08:13.090058 #6545]  INFO -- default-oraclelinux: el 7 x86_64
+I, [2016-06-23T13:08:13.090216 #6545]  INFO -- default-oraclelinux: Getting information for chef stable  for el...
+I, [2016-06-23T13:08:13.090298 #6545]  INFO -- default-oraclelinux: downloading https://omnitruck-direct.chef.io/stable/chef/metadata?v=&p=el&pv=7&m=x86_64
+I, [2016-06-23T13:08:13.090362 #6545]  INFO -- default-oraclelinux:   to file /tmp/install.sh.30/metadata.txt
+I, [2016-06-23T13:08:13.093634 #6545]  INFO -- default-oraclelinux: trying curl...
+I, [2016-06-23T13:08:13.638158 #6545]  INFO -- default-oraclelinux: sha1	4b0ecd14127fe6d0e5423f78a733ce43db1814c7
+I, [2016-06-23T13:08:13.638317 #6545]  INFO -- default-oraclelinux: sha256	a5d5db51eb57cdb0045953f4007f10bf50199c40c0d89c41272cf171d56b6c53
+I, [2016-06-23T13:08:13.638383 #6545]  INFO -- default-oraclelinux: url	https://packages.chef.io/stable/el/7/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T13:08:13.639906 #6545]  INFO -- default-oraclelinux: version	12.11.18
+I, [2016-06-23T13:08:13.647645 #6545]  INFO -- default-oraclelinux: downloaded metadata file looks valid...
+I, [2016-06-23T13:08:13.701073 #6545]  INFO -- default-oraclelinux: downloading https://packages.chef.io/stable/el/7/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T13:08:13.701244 #6545]  INFO -- default-oraclelinux:   to file /tmp/install.sh.30/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T13:08:13.703729 #6545]  INFO -- default-oraclelinux: trying curl...
+I, [2016-06-23T13:08:17.425005 #6545]  INFO -- default-oraclelinux: Comparing checksum with sha256sum...
+I, [2016-06-23T13:08:18.028000 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:08:18.028163 #6545]  INFO -- default-oraclelinux: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-06-23T13:08:18.028255 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:08:18.028319 #6545]  INFO -- default-oraclelinux: You are installing an omnibus package without a version pin.  If you are installing
+I, [2016-06-23T13:08:18.029801 #6545]  INFO -- default-oraclelinux: on production servers via an automated process this is DANGEROUS and you will
+I, [2016-06-23T13:08:18.029880 #6545]  INFO -- default-oraclelinux: be upgraded without warning on new releases, even to new major releases.
+I, [2016-06-23T13:08:18.029940 #6545]  INFO -- default-oraclelinux: Letting the version float is only appropriate in desktop, test, development or
+I, [2016-06-23T13:08:18.029996 #6545]  INFO -- default-oraclelinux: CI/CD environments.
+I, [2016-06-23T13:08:18.030048 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:08:18.030101 #6545]  INFO -- default-oraclelinux: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-06-23T13:08:18.030154 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:08:18.030353 #6545]  INFO -- default-oraclelinux: Installing chef 
+I, [2016-06-23T13:08:18.030411 #6545]  INFO -- default-oraclelinux: installing with rpm...
+I, [2016-06-23T13:08:19.649042 #6545]  INFO -- default-oraclelinux: warning: /tmp/install.sh.30/chef-12.11.18-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+I, [2016-06-23T13:08:20.088208 #6545]  INFO -- default-oraclelinux: Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+I, [2016-06-23T13:08:20.117039 #6545]  INFO -- default-oraclelinux: Updating / installing...
+I, [2016-06-23T13:08:55.832655 #6545]  INFO -- default-oraclelinux:    1:chef-12.11.18-1.el7                                                (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 51%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+I, [2016-06-23T13:09:06.047244 #6545]  INFO -- default-oraclelinux: Thank you for installing Chef!
+I, [2016-06-23T13:09:07.497647 #6545]  INFO -- default-oraclelinux: Transferring files to <default-oraclelinux>
+I, [2016-06-23T13:09:37.542252 #6545]  INFO -- default-oraclelinux: Starting Chef Client, version 12.11.18
+I, [2016-06-23T13:09:48.786076 #6545]  INFO -- default-oraclelinux: Creating a new client identity for default-oraclelinux using the validator key.
+I, [2016-06-23T13:09:48.983255 #6545]  INFO -- default-oraclelinux: resolving cookbooks for run list: ["workstation::default"]
+I, [2016-06-23T13:09:49.029890 #6545]  INFO -- default-oraclelinux: Synchronizing Cookbooks:
+I, [2016-06-23T13:09:49.048677 #6545]  INFO -- default-oraclelinux:   - workstation (0.1.0)
+I, [2016-06-23T13:09:49.048877 #6545]  INFO -- default-oraclelinux: Installing Cookbook Gems:
+I, [2016-06-23T13:09:49.050627 #6545]  INFO -- default-oraclelinux: Compiling Cookbooks...
+I, [2016-06-23T13:09:49.062726 #6545]  INFO -- default-oraclelinux: Converging 3 resources
+I, [2016-06-23T13:09:49.064720 #6545]  INFO -- default-oraclelinux: Recipe: workstation::setup
+I, [2016-06-23T13:10:01.433098 #6545]  INFO -- default-oraclelinux:   * yum_package[tree] action install
+I, [2016-06-23T13:10:01.433378 #6545]  INFO -- default-oraclelinux:     - install version 1.6.0-10.el7 of package tree
+I, [2016-06-23T13:11:00.625440 #6545]  INFO -- default-oraclelinux:   * yum_package[git] action install
+I, [2016-06-23T13:11:00.627956 #6545]  INFO -- default-oraclelinux:     - install version 1.8.3.1-6.el7_2.1 of package git
+I, [2016-06-23T13:11:00.869237 #6545]  INFO -- default-oraclelinux:   * file[/etc/motd] action create
+I, [2016-06-23T13:11:00.869374 #6545]  INFO -- default-oraclelinux:     - update content in file /etc/motd from e3b0c4 to ec42a3
+I, [2016-06-23T13:11:00.869439 #6545]  INFO -- default-oraclelinux:     --- /etc/motd	2013-06-07 14:31:32.000000000 +0000
+I, [2016-06-23T13:11:00.869498 #6545]  INFO -- default-oraclelinux:     +++ /etc/.chef-motd20160623-149-ciws47	2016-06-23 13:11:00.816173707 +0000
+I, [2016-06-23T13:11:00.870941 #6545]  INFO -- default-oraclelinux:     @@ -1 +1,8 @@
+I, [2016-06-23T13:11:00.871021 #6545]  INFO -- default-oraclelinux:     +Property of ...
+I, [2016-06-23T13:11:00.871081 #6545]  INFO -- default-oraclelinux:     +
+I, [2016-06-23T13:11:00.871138 #6545]  INFO -- default-oraclelinux:     +   IPADDRESS-ohai: 172.17.0.71
+I, [2016-06-23T13:11:00.871213 #6545]  INFO -- default-oraclelinux:     +   HOSTNAME-ohai:  f97ba1a94674
+I, [2016-06-23T13:11:00.871275 #6545]  INFO -- default-oraclelinux:     +   MEMORY-ohai:    604308kB
+I, [2016-06-23T13:11:00.871333 #6545]  INFO -- default-oraclelinux:     +   CPU-ohai:       1800.000 MHz
+I, [2016-06-23T13:11:01.406219 #6545]  INFO -- default-oraclelinux:     +   
+I, [2016-06-23T13:11:02.308028 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:11:02.308195 #6545]  INFO -- default-oraclelinux: Running handlers:
+I, [2016-06-23T13:11:02.309908 #6545]  INFO -- default-oraclelinux: Running handlers complete
+I, [2016-06-23T13:11:02.309989 #6545]  INFO -- default-oraclelinux: Chef Client finished, 3/3 resources updated in 01 minutes 25 seconds
+I, [2016-06-23T13:11:05.540477 #6545]  INFO -- default-oraclelinux: Finished converging <default-oraclelinux> (2m53.27s).
+I, [2016-06-23T13:11:05.540716 #6545]  INFO -- default-oraclelinux: -----> Setting up <default-oraclelinux>...
+W, [2016-06-23T13:11:05.541947 #6545]  WARN -- default-oraclelinux: Running legacy setup for 'Docker' Driver
+I, [2016-06-23T13:11:10.071257 #6545]  INFO -- default-oraclelinux: -----> Installing Busser (busser)
+I, [2016-06-23T13:11:16.820488 #6545]  INFO -- default-oraclelinux: Fetching: thor-0.19.0.gemFetching: thor-0.19.0.gem (  3%)Fetching: thor-0.19.0.gem (  6%)Fetching: thor-0.19.0.gem (  9%)Fetching: thor-0.19.0.gem ( 12%)Fetching: thor-0.19.0.gem ( 15%)Fetching: thor-0.19.0.gem ( 18%)Fetching: thor-0.19.0.gem ( 21%)Fetching: thor-0.19.0.gem ( 24%)Fetching: thor-0.19.0.gem ( 27%)Fetching: thor-0.19.0.gem ( 30%)Fetching: thor-0.19.0.gem ( 33%)Fetching: thor-0.19.0.gem ( 35%)Fetching: thor-0.19.0.gem ( 53%)Fetching: thor-0.19.0.gem ( 71%)Fetching: thor-0.19.0.gem ( 89%)Fetching: thor-0.19.0.gem (100%)Fetching: thor-0.19.0.gem (100%)
+I, [2016-06-23T13:11:18.061142 #6545]  INFO -- default-oraclelinux: Successfully installed thor-0.19.0
+I, [2016-06-23T13:11:18.229659 #6545]  INFO -- default-oraclelinux: Fetching: busser-0.7.1.gemFetching: busser-0.7.1.gem (  9%)Fetching: busser-0.7.1.gem ( 20%)Fetching: busser-0.7.1.gem ( 31%)Fetching: busser-0.7.1.gem ( 43%)Fetching: busser-0.7.1.gem ( 54%)Fetching: busser-0.7.1.gem ( 64%)Fetching: busser-0.7.1.gem ( 76%)Fetching: busser-0.7.1.gem ( 87%)Fetching: busser-0.7.1.gem ( 98%)Fetching: busser-0.7.1.gem (100%)Fetching: busser-0.7.1.gem (100%)
+I, [2016-06-23T13:11:18.736017 #6545]  INFO -- default-oraclelinux: Successfully installed busser-0.7.1
+I, [2016-06-23T13:11:18.736154 #6545]  INFO -- default-oraclelinux: 2 gems installed
+I, [2016-06-23T13:11:18.941031 #6545]  INFO -- default-oraclelinux: Installing Busser plugins: busser-serverspec
+I, [2016-06-23T13:11:31.929014 #6545]  INFO -- default-oraclelinux: Plugin serverspec installed (version 0.5.9)
+I, [2016-06-23T13:11:31.937639 #6545]  INFO -- default-oraclelinux: -----> Running postinstall for serverspec plugin
+I, [2016-06-23T13:11:32.608638 #6545]  INFO -- default-oraclelinux: Finished setting up <default-oraclelinux> (0m27.07s).
+I, [2016-06-23T13:11:32.609096 #6545]  INFO -- default-oraclelinux: -----> Verifying <default-oraclelinux>...
+W, [2016-06-23T13:11:32.610141 #6545]  WARN -- default-oraclelinux: Running legacy verify for 'Docker' Driver
+I, [2016-06-23T13:11:32.610504 #6545]  INFO -- default-oraclelinux: Preparing files for transfer
+I, [2016-06-23T13:11:33.019293 #6545]  INFO -- default-oraclelinux: Suite path directory /tmp/verifier/suites does not exist, skipping.
+I, [2016-06-23T13:11:33.037503 #6545]  INFO -- default-oraclelinux: Transferring files to <default-oraclelinux>
+I, [2016-06-23T13:11:33.575148 #6545]  INFO -- default-oraclelinux: -----> Running serverspec test suite
+I, [2016-06-23T13:11:33.580662 #6545]  INFO -- default-oraclelinux: -----> Installing Serverspec..
+I, [2016-06-23T13:11:35.199652 #6545]  INFO -- default-oraclelinux: Fetching: rspec-support-3.4.1.gemFetching: rspec-support-3.4.1.gem (  7%)Fetching: rspec-support-3.4.1.gem ( 16%)Fetching: rspec-support-3.4.1.gem ( 24%)Fetching: rspec-support-3.4.1.gem ( 33%)Fetching: rspec-support-3.4.1.gem ( 42%)Fetching: rspec-support-3.4.1.gem ( 50%)Fetching: rspec-support-3.4.1.gem ( 59%)Fetching: rspec-support-3.4.1.gem ( 67%)Fetching: rspec-support-3.4.1.gem ( 76%)Fetching: rspec-support-3.4.1.gem ( 85%)Fetching: rspec-support-3.4.1.gem ( 93%)Fetching: rspec-support-3.4.1.gem (100%)Fetching: rspec-support-3.4.1.gem (100%)
+I, [2016-06-23T13:11:35.499633 #6545]  INFO -- default-oraclelinux: Fetching: rspec-core-3.4.4.gemFetching: rspec-core-3.4.4.gem (  2%)Fetching: rspec-core-3.4.4.gem (  4%)Fetching: rspec-core-3.4.4.gem (  6%)Fetching: rspec-core-3.4.4.gem (  8%)Fetching: rspec-core-3.4.4.gem (  9%)Fetching: rspec-core-3.4.4.gem ( 11%)Fetching: rspec-core-3.4.4.gem ( 13%)Fetching: rspec-core-3.4.4.gem ( 15%)Fetching: rspec-core-3.4.4.gem ( 17%)Fetching: rspec-core-3.4.4.gem ( 19%)Fetching: rspec-core-3.4.4.gem ( 21%)Fetching: rspec-core-3.4.4.gem ( 22%)Fetching: rspec-core-3.4.4.gem ( 34%)Fetching: rspec-core-3.4.4.gem ( 45%)Fetching: rspec-core-3.4.4.gem ( 56%)Fetching: rspec-core-3.4.4.gem ( 67%)Fetching: rspec-core-3.4.4.gem ( 79%)Fetching: rspec-core-3.4.4.gem ( 90%)Fetching: rspec-core-3.4.4.gem (100%)Fetching: rspec-core-3.4.4.gem (100%)
+I, [2016-06-23T13:11:35.811628 #6545]  INFO -- default-oraclelinux: Fetching: diff-lcs-1.2.5.gemFetching: diff-lcs-1.2.5.gem ( 33%)Fetching: diff-lcs-1.2.5.gem ( 66%)Fetching: diff-lcs-1.2.5.gem ( 99%)Fetching: diff-lcs-1.2.5.gem (100%)Fetching: diff-lcs-1.2.5.gem (100%)
+I, [2016-06-23T13:11:36.094757 #6545]  INFO -- default-oraclelinux: Fetching: rspec-expectations-3.4.0.gemFetching: rspec-expectations-3.4.0.gem ( 21%)Fetching: rspec-expectations-3.4.0.gem ( 43%)Fetching: rspec-expectations-3.4.0.gem ( 65%)Fetching: rspec-expectations-3.4.0.gem ( 87%)Fetching: rspec-expectations-3.4.0.gem (100%)Fetching: rspec-expectations-3.4.0.gem (100%)
+I, [2016-06-23T13:11:36.379651 #6545]  INFO -- default-oraclelinux: Fetching: rspec-mocks-3.4.1.gemFetching: rspec-mocks-3.4.1.gem ( 22%)Fetching: rspec-mocks-3.4.1.gem ( 44%)Fetching: rspec-mocks-3.4.1.gem ( 65%)Fetching: rspec-mocks-3.4.1.gem ( 87%)Fetching: rspec-mocks-3.4.1.gem (100%)Fetching: rspec-mocks-3.4.1.gem (100%)
+I, [2016-06-23T13:11:36.662217 #6545]  INFO -- default-oraclelinux: Fetching: rspec-3.4.0.gemFetching: rspec-3.4.0.gem (100%)Fetching: rspec-3.4.0.gem (100%)
+I, [2016-06-23T13:11:36.917651 #6545]  INFO -- default-oraclelinux: Fetching: rspec-its-1.2.0.gemFetching: rspec-its-1.2.0.gem (100%)Fetching: rspec-its-1.2.0.gem (100%)
+I, [2016-06-23T13:11:37.181651 #6545]  INFO -- default-oraclelinux: Fetching: multi_json-1.12.1.gemFetching: multi_json-1.12.1.gem ( 61%)Fetching: multi_json-1.12.1.gem (100%)Fetching: multi_json-1.12.1.gem (100%)
+I, [2016-06-23T13:11:37.455628 #6545]  INFO -- default-oraclelinux: Fetching: net-ssh-3.2.0.gemFetching: net-ssh-3.2.0.gem (  9%)Fetching: net-ssh-3.2.0.gem ( 18%)Fetching: net-ssh-3.2.0.gem ( 27%)Fetching: net-ssh-3.2.0.gem ( 35%)Fetching: net-ssh-3.2.0.gem ( 44%)Fetching: net-ssh-3.2.0.gem ( 53%)Fetching: net-ssh-3.2.0.gem ( 62%)Fetching: net-ssh-3.2.0.gem ( 71%)Fetching: net-ssh-3.2.0.gem ( 80%)Fetching: net-ssh-3.2.0.gem ( 89%)Fetching: net-ssh-3.2.0.gem ( 97%)Fetching: net-ssh-3.2.0.gem (100%)Fetching: net-ssh-3.2.0.gem (100%)
+I, [2016-06-23T13:11:37.815717 #6545]  INFO -- default-oraclelinux: Fetching: net-scp-1.2.1.gemFetching: net-scp-1.2.1.gem ( 48%)Fetching: net-scp-1.2.1.gem ( 98%)Fetching: net-scp-1.2.1.gem (100%)Fetching: net-scp-1.2.1.gem (100%)
+I, [2016-06-23T13:11:38.097652 #6545]  INFO -- default-oraclelinux: Fetching: net-telnet-0.1.1.gemFetching: net-telnet-0.1.1.gem ( 93%)Fetching: net-telnet-0.1.1.gem (100%)Fetching: net-telnet-0.1.1.gem (100%)
+I, [2016-06-23T13:11:38.356090 #6545]  INFO -- default-oraclelinux: Fetching: sfl-2.2.gemFetching: sfl-2.2.gem (100%)Fetching: sfl-2.2.gem (100%)
+I, [2016-06-23T13:11:38.623667 #6545]  INFO -- default-oraclelinux: Fetching: specinfra-2.59.2.gemFetching: specinfra-2.59.2.gem ( 20%)Fetching: specinfra-2.59.2.gem ( 41%)Fetching: specinfra-2.59.2.gem ( 61%)Fetching: specinfra-2.59.2.gem ( 82%)Fetching: specinfra-2.59.2.gem (100%)Fetching: specinfra-2.59.2.gem (100%)
+I, [2016-06-23T13:11:39.020670 #6545]  INFO -- default-oraclelinux: Fetching: serverspec-2.36.0.gemFetching: serverspec-2.36.0.gem ( 41%)Fetching: serverspec-2.36.0.gem ( 83%)Fetching: serverspec-2.36.0.gem (100%)Fetching: serverspec-2.36.0.gem (100%)
+I, [2016-06-23T13:11:39.177090 #6545]  INFO -- default-oraclelinux: -----> serverspec installed (version 2.36.0)
+I, [2016-06-23T13:11:39.351172 #6545]  INFO -- default-oraclelinux: /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.4.1/lib:/tmp/verifier/gems/gems/rspec-core-3.4.4/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+I, [2016-06-23T13:11:40.138110 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:11:40.138275 #6545]  INFO -- default-oraclelinux: workstation::default
+I, [2016-06-23T13:11:40.138339 #6545]  INFO -- default-oraclelinux:   Package "tree"
+I, [2016-06-23T13:11:40.454078 #6545]  INFO -- default-oraclelinux: [32m    should be installed[0m
+I, [2016-06-23T13:11:40.456659 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:11:40.456740 #6545]  INFO -- default-oraclelinux: Finished in 0.31789 seconds (files took 0.70508 seconds to load)
+I, [2016-06-23T13:11:40.456803 #6545]  INFO -- default-oraclelinux: [32m1 example, 0 failures[0m
+I, [2016-06-23T13:11:40.456859 #6545]  INFO -- default-oraclelinux: 
+I, [2016-06-23T13:11:40.581760 #6545]  INFO -- default-oraclelinux: Finished verifying <default-oraclelinux> (0m7.97s).
+I, [2016-06-23T13:11:40.583139 #6545]  INFO -- default-oraclelinux: -----> Destroying <default-oraclelinux>...
+I, [2016-06-23T13:11:40.866478 #6545]  INFO -- default-oraclelinux: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2016-06-23T13:11:40.866719 #6545]  INFO -- default-oraclelinux: root                7330                1021                0                   13:08               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2016-06-23T13:11:40.866791 #6545]  INFO -- default-oraclelinux: root                7366                7330                0                   13:08               ?                   00:00:00            sshd: kitchen@pts/0
+I, [2016-06-23T13:11:42.587004 #6545]  INFO -- default-oraclelinux: f97ba1a94674dfb720ffc42d0f9b9db5d99a1621598a3de32fe8069b0d4d0d6b
+I, [2016-06-23T13:11:44.681683 #6545]  INFO -- default-oraclelinux: f97ba1a94674dfb720ffc42d0f9b9db5d99a1621598a3de32fe8069b0d4d0d6b
+I, [2016-06-23T13:11:44.708387 #6545]  INFO -- default-oraclelinux: Finished destroying <default-oraclelinux> (0m4.12s).
+I, [2016-06-23T13:11:44.709678 #6545]  INFO -- default-oraclelinux: Finished testing <default-oraclelinux> (3m37.29s).

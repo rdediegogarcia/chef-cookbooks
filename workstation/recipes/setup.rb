@@ -16,7 +16,7 @@ file '/etc/motd' do
    IPADDRESS-ohai: #{node['ipaddress']}
    HOSTNAME-ohai:  #{node['hostname']}
    MEMORY-ohai:    #{node['memory']['total']}
-   CPU-ohai:       #{node['cpu']['0']['mhz']} 
+   CPU-ohai:       #{node['cpu']['0']['mhz']} MHz
    "
 
    mode '0644'
