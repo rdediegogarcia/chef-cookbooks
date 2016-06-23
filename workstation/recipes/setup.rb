@@ -11,5 +11,15 @@ package 'git' do
 end
 
 file '/etc/motd' do
-   content 'Property of ...'
+   content "Property of ...
+
+   IPADDRESS-ohai: #{node['ipaddress']}
+   HOSTNAME-ohai:  #{node['hostname']}
+   MEMORY-ohai:    #{node['memory']['total']}
+   CPU-ohai:       #{node['cpu']['0']['mhz']} 
+   "
+
+   mode '0644'
+   owner 'root'
+   group 'root'
 end
