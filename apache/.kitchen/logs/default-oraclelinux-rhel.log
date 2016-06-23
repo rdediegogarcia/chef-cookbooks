@@ -106,3 +106,97 @@ I, [2016-06-23T13:17:04.964536 #8404]  INFO -- default-oraclelinux-rhel:    1:ch
 I, [2016-06-23T13:17:13.946505 #8404]  INFO -- default-oraclelinux-rhel: Thank you for installing Chef!
 I, [2016-06-23T13:17:14.979877 #8404]  INFO -- default-oraclelinux-rhel: Transferring files to <default-oraclelinux-rhel>
 I, [2016-06-23T13:17:45.153152 #8404]  INFO -- default-oraclelinux-rhel: Starting Chef Client, version 12.11.18
+I, [2016-06-23T13:18:16.936239 #8404]  INFO -- default-oraclelinux-rhel: Creating a new client identity for default-oraclelinux-rhel using the validator key.
+I, [2016-06-23T13:18:18.010110 #8404]  INFO -- default-oraclelinux-rhel: resolving cookbooks for run list: ["apache::default"]
+I, [2016-06-23T13:18:18.056080 #8404]  INFO -- default-oraclelinux-rhel: Synchronizing Cookbooks:
+I, [2016-06-23T13:18:18.071758 #8404]  INFO -- default-oraclelinux-rhel:   - apache (0.1.0)
+I, [2016-06-23T13:18:18.071844 #8404]  INFO -- default-oraclelinux-rhel: Installing Cookbook Gems:
+I, [2016-06-23T13:18:18.071904 #8404]  INFO -- default-oraclelinux-rhel: Compiling Cookbooks...
+I, [2016-06-23T13:18:18.083733 #8404]  INFO -- default-oraclelinux-rhel: Converging 3 resources
+I, [2016-06-23T13:18:18.085643 #8404]  INFO -- default-oraclelinux-rhel: Recipe: apache::server
+I, [2016-06-23T13:20:07.424403 #8404]  INFO -- default-oraclelinux-rhel:   * yum_package[httpd] action install
+I, [2016-06-23T13:20:07.429701 #8404]  INFO -- default-oraclelinux-rhel:     - install version 2.2.15-53.0.1.el6 of package httpd
+I, [2016-06-23T13:20:07.474808 #8404]  INFO -- default-oraclelinux-rhel:   * file[/var/www/html/index.html] action create
+I, [2016-06-23T13:20:07.518849 #8404]  INFO -- default-oraclelinux-rhel:     - create new file /var/www/html/index.html
+I, [2016-06-23T13:20:07.518950 #8404]  INFO -- default-oraclelinux-rhel:     - update content in file /var/www/html/index.html from none to a6b5d9
+I, [2016-06-23T13:20:07.519109 #8404]  INFO -- default-oraclelinux-rhel:     --- /var/www/html/index.html	2016-06-23 13:20:07.473173723 +0000
+I, [2016-06-23T13:20:07.519194 #8404]  INFO -- default-oraclelinux-rhel:     +++ /var/www/html/.chef-index.html20160623-127-1gtg2qo	2016-06-23 13:20:07.472173722 +0000
+I, [2016-06-23T13:20:07.519263 #8404]  INFO -- default-oraclelinux-rhel:     @@ -1 +1,4 @@
+I, [2016-06-23T13:20:07.520796 #8404]  INFO -- default-oraclelinux-rhel:     +<h1>Hola Capullos! (created by Chef)</h1>
+I, [2016-06-23T13:20:07.520903 #8404]  INFO -- default-oraclelinux-rhel:     +             <h2>IPADDRESS: 172.17.0.72</h2>
+I, [2016-06-23T13:20:07.592956 #8404]  INFO -- default-oraclelinux-rhel:     +             <h2>HOSTNAME : 0ab33eb9f0a8 </h2>
+I, [2016-06-23T13:20:07.836159 #8404]  INFO -- default-oraclelinux-rhel:   * service[httpd] action enable
+I, [2016-06-23T13:20:07.840665 #8404]  INFO -- default-oraclelinux-rhel:     - enable service service[httpd]
+I, [2016-06-23T13:20:08.167129 #8404]  INFO -- default-oraclelinux-rhel:   * service[httpd] action start
+I, [2016-06-23T13:20:08.169640 #8404]  INFO -- default-oraclelinux-rhel:     - start service service[httpd]
+I, [2016-06-23T13:20:08.310137 #8404]  INFO -- default-oraclelinux-rhel: 
+I, [2016-06-23T13:20:08.310294 #8404]  INFO -- default-oraclelinux-rhel: Running handlers:
+I, [2016-06-23T13:20:08.310372 #8404]  INFO -- default-oraclelinux-rhel: Running handlers complete
+I, [2016-06-23T13:20:08.311797 #8404]  INFO -- default-oraclelinux-rhel: Chef Client finished, 4/4 resources updated in 02 minutes 23 seconds
+I, [2016-06-23T13:20:09.702063 #8404]  INFO -- default-oraclelinux-rhel: Finished converging <default-oraclelinux-rhel> (3m36.79s).
+I, [2016-06-23T13:20:09.702505 #8404]  INFO -- default-oraclelinux-rhel: -----> Setting up <default-oraclelinux-rhel>...
+W, [2016-06-23T13:20:09.703954 #8404]  WARN -- default-oraclelinux-rhel: Running legacy setup for 'Docker' Driver
+I, [2016-06-23T13:20:10.167276 #8404]  INFO -- default-oraclelinux-rhel: -----> Installing Busser (busser)
+I, [2016-06-23T13:20:11.721702 #8404]  INFO -- default-oraclelinux-rhel: Fetching: thor-0.19.0.gemFetching: thor-0.19.0.gem (  3%)Fetching: thor-0.19.0.gem (  6%)Fetching: thor-0.19.0.gem (  9%)Fetching: thor-0.19.0.gem ( 12%)Fetching: thor-0.19.0.gem ( 15%)Fetching: thor-0.19.0.gem ( 18%)Fetching: thor-0.19.0.gem ( 21%)Fetching: thor-0.19.0.gem ( 24%)Fetching: thor-0.19.0.gem ( 27%)Fetching: thor-0.19.0.gem ( 30%)Fetching: thor-0.19.0.gem ( 33%)Fetching: thor-0.19.0.gem ( 35%)Fetching: thor-0.19.0.gem ( 53%)Fetching: thor-0.19.0.gem ( 71%)Fetching: thor-0.19.0.gem ( 89%)Fetching: thor-0.19.0.gem (100%)Fetching: thor-0.19.0.gem (100%)
+I, [2016-06-23T13:20:11.840039 #8404]  INFO -- default-oraclelinux-rhel: Successfully installed thor-0.19.0
+I, [2016-06-23T13:20:11.969673 #8404]  INFO -- default-oraclelinux-rhel: Fetching: busser-0.7.1.gemFetching: busser-0.7.1.gem ( 64%)Fetching: busser-0.7.1.gem (100%)Fetching: busser-0.7.1.gem (100%)
+I, [2016-06-23T13:20:12.040100 #8404]  INFO -- default-oraclelinux-rhel: Successfully installed busser-0.7.1
+I, [2016-06-23T13:20:12.040257 #8404]  INFO -- default-oraclelinux-rhel: 2 gems installed
+I, [2016-06-23T13:20:12.065369 #8404]  INFO -- default-oraclelinux-rhel: Installing Busser plugins: busser-serverspec
+I, [2016-06-23T13:20:14.656077 #8404]  INFO -- default-oraclelinux-rhel: Plugin serverspec installed (version 0.5.9)
+I, [2016-06-23T13:20:14.664762 #8404]  INFO -- default-oraclelinux-rhel: -----> Running postinstall for serverspec plugin
+I, [2016-06-23T13:20:15.371036 #8404]  INFO -- default-oraclelinux-rhel: Finished setting up <default-oraclelinux-rhel> (0m5.67s).
+I, [2016-06-23T13:20:15.371494 #8404]  INFO -- default-oraclelinux-rhel: -----> Verifying <default-oraclelinux-rhel>...
+W, [2016-06-23T13:20:15.372497 #8404]  WARN -- default-oraclelinux-rhel: Running legacy verify for 'Docker' Driver
+I, [2016-06-23T13:20:15.372849 #8404]  INFO -- default-oraclelinux-rhel: Preparing files for transfer
+I, [2016-06-23T13:20:15.763226 #8404]  INFO -- default-oraclelinux-rhel: Suite path directory /tmp/verifier/suites does not exist, skipping.
+I, [2016-06-23T13:20:15.780173 #8404]  INFO -- default-oraclelinux-rhel: Transferring files to <default-oraclelinux-rhel>
+I, [2016-06-23T13:20:16.305313 #8404]  INFO -- default-oraclelinux-rhel: -----> Running serverspec test suite
+I, [2016-06-23T13:20:16.310690 #8404]  INFO -- default-oraclelinux-rhel: -----> Installing Serverspec..
+I, [2016-06-23T13:20:18.114689 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-support-3.4.1.gemFetching: rspec-support-3.4.1.gem (  7%)Fetching: rspec-support-3.4.1.gem ( 16%)Fetching: rspec-support-3.4.1.gem ( 24%)Fetching: rspec-support-3.4.1.gem ( 33%)Fetching: rspec-support-3.4.1.gem ( 42%)Fetching: rspec-support-3.4.1.gem ( 50%)Fetching: rspec-support-3.4.1.gem ( 59%)Fetching: rspec-support-3.4.1.gem ( 67%)Fetching: rspec-support-3.4.1.gem ( 76%)Fetching: rspec-support-3.4.1.gem ( 85%)Fetching: rspec-support-3.4.1.gem ( 93%)Fetching: rspec-support-3.4.1.gem (100%)Fetching: rspec-support-3.4.1.gem (100%)
+I, [2016-06-23T13:20:18.491764 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-core-3.4.4.gemFetching: rspec-core-3.4.4.gem (  2%)Fetching: rspec-core-3.4.4.gem (  4%)Fetching: rspec-core-3.4.4.gem (  6%)Fetching: rspec-core-3.4.4.gem (  8%)Fetching: rspec-core-3.4.4.gem (  9%)Fetching: rspec-core-3.4.4.gem ( 11%)Fetching: rspec-core-3.4.4.gem ( 13%)Fetching: rspec-core-3.4.4.gem ( 15%)Fetching: rspec-core-3.4.4.gem ( 17%)Fetching: rspec-core-3.4.4.gem ( 19%)Fetching: rspec-core-3.4.4.gem ( 21%)Fetching: rspec-core-3.4.4.gem ( 22%)Fetching: rspec-core-3.4.4.gem ( 34%)Fetching: rspec-core-3.4.4.gem ( 45%)Fetching: rspec-core-3.4.4.gem ( 56%)Fetching: rspec-core-3.4.4.gem ( 67%)Fetching: rspec-core-3.4.4.gem ( 79%)Fetching: rspec-core-3.4.4.gem ( 90%)Fetching: rspec-core-3.4.4.gem (100%)Fetching: rspec-core-3.4.4.gem (100%)
+I, [2016-06-23T13:20:18.855644 #8404]  INFO -- default-oraclelinux-rhel: Fetching: diff-lcs-1.2.5.gemFetching: diff-lcs-1.2.5.gem ( 32%)Fetching: diff-lcs-1.2.5.gem ( 66%)Fetching: diff-lcs-1.2.5.gem ( 99%)Fetching: diff-lcs-1.2.5.gem (100%)Fetching: diff-lcs-1.2.5.gem (100%)
+I, [2016-06-23T13:20:19.187661 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-expectations-3.4.0.gemFetching: rspec-expectations-3.4.0.gem ( 21%)Fetching: rspec-expectations-3.4.0.gem ( 43%)Fetching: rspec-expectations-3.4.0.gem ( 65%)Fetching: rspec-expectations-3.4.0.gem ( 87%)Fetching: rspec-expectations-3.4.0.gem (100%)Fetching: rspec-expectations-3.4.0.gem (100%)
+I, [2016-06-23T13:20:19.515646 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-mocks-3.4.1.gemFetching: rspec-mocks-3.4.1.gem ( 21%)Fetching: rspec-mocks-3.4.1.gem ( 43%)Fetching: rspec-mocks-3.4.1.gem ( 65%)Fetching: rspec-mocks-3.4.1.gem ( 87%)Fetching: rspec-mocks-3.4.1.gem (100%)Fetching: rspec-mocks-3.4.1.gem (100%)
+I, [2016-06-23T13:20:19.836772 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-3.4.0.gemFetching: rspec-3.4.0.gem (100%)Fetching: rspec-3.4.0.gem (100%)
+I, [2016-06-23T13:20:20.131972 #8404]  INFO -- default-oraclelinux-rhel: Fetching: rspec-its-1.2.0.gemFetching: rspec-its-1.2.0.gem (100%)Fetching: rspec-its-1.2.0.gem (100%)
+I, [2016-06-23T13:20:20.444786 #8404]  INFO -- default-oraclelinux-rhel: Fetching: multi_json-1.12.1.gemFetching: multi_json-1.12.1.gem ( 61%)Fetching: multi_json-1.12.1.gem (100%)Fetching: multi_json-1.12.1.gem (100%)
+I, [2016-06-23T13:20:20.779648 #8404]  INFO -- default-oraclelinux-rhel: Fetching: net-ssh-3.2.0.gemFetching: net-ssh-3.2.0.gem (  9%)Fetching: net-ssh-3.2.0.gem ( 18%)Fetching: net-ssh-3.2.0.gem ( 27%)Fetching: net-ssh-3.2.0.gem ( 35%)Fetching: net-ssh-3.2.0.gem ( 44%)Fetching: net-ssh-3.2.0.gem ( 53%)Fetching: net-ssh-3.2.0.gem ( 62%)Fetching: net-ssh-3.2.0.gem ( 71%)Fetching: net-ssh-3.2.0.gem ( 80%)Fetching: net-ssh-3.2.0.gem ( 89%)Fetching: net-ssh-3.2.0.gem ( 97%)Fetching: net-ssh-3.2.0.gem (100%)Fetching: net-ssh-3.2.0.gem (100%)
+I, [2016-06-23T13:20:21.200668 #8404]  INFO -- default-oraclelinux-rhel: Fetching: net-scp-1.2.1.gemFetching: net-scp-1.2.1.gem ( 48%)Fetching: net-scp-1.2.1.gem ( 98%)Fetching: net-scp-1.2.1.gem (100%)Fetching: net-scp-1.2.1.gem (100%)
+I, [2016-06-23T13:20:21.521049 #8404]  INFO -- default-oraclelinux-rhel: Fetching: net-telnet-0.1.1.gemFetching: net-telnet-0.1.1.gem ( 93%)Fetching: net-telnet-0.1.1.gem (100%)Fetching: net-telnet-0.1.1.gem (100%)
+I, [2016-06-23T13:20:21.823997 #8404]  INFO -- default-oraclelinux-rhel: Fetching: sfl-2.2.gemFetching: sfl-2.2.gem (100%)Fetching: sfl-2.2.gem (100%)
+I, [2016-06-23T13:20:22.132799 #8404]  INFO -- default-oraclelinux-rhel: Fetching: specinfra-2.59.2.gemFetching: specinfra-2.59.2.gem ( 20%)Fetching: specinfra-2.59.2.gem ( 41%)Fetching: specinfra-2.59.2.gem ( 61%)Fetching: specinfra-2.59.2.gem ( 82%)Fetching: specinfra-2.59.2.gem (100%)Fetching: specinfra-2.59.2.gem (100%)
+I, [2016-06-23T13:20:22.556669 #8404]  INFO -- default-oraclelinux-rhel: Fetching: serverspec-2.36.0.gemFetching: serverspec-2.36.0.gem ( 41%)Fetching: serverspec-2.36.0.gem ( 83%)Fetching: serverspec-2.36.0.gem (100%)Fetching: serverspec-2.36.0.gem (100%)
+I, [2016-06-23T13:20:22.708215 #8404]  INFO -- default-oraclelinux-rhel: -----> serverspec installed (version 2.36.0)
+I, [2016-06-23T13:20:22.889118 #8404]  INFO -- default-oraclelinux-rhel: /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.4.1/lib:/tmp/verifier/gems/gems/rspec-core-3.4.4/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+I, [2016-06-23T13:20:23.658212 #8404]  INFO -- default-oraclelinux-rhel: 
+I, [2016-06-23T13:20:23.658360 #8404]  INFO -- default-oraclelinux-rhel: apache::default
+I, [2016-06-23T13:20:23.658439 #8404]  INFO -- default-oraclelinux-rhel:   Package "httpd"
+I, [2016-06-23T13:20:23.952065 #8404]  INFO -- default-oraclelinux-rhel: [32m    should be installed[0m
+I, [2016-06-23T13:20:23.952238 #8404]  INFO -- default-oraclelinux-rhel:   Port "80"
+I, [2016-06-23T13:20:23.996227 #8404]  INFO -- default-oraclelinux-rhel: [32m    should be listening[0m
+I, [2016-06-23T13:20:23.996378 #8404]  INFO -- default-oraclelinux-rhel:   Command "curl localhost"
+I, [2016-06-23T13:20:23.997760 #8404]  INFO -- default-oraclelinux-rhel:     exit_status
+I, [2016-06-23T13:20:24.043011 #8404]  INFO -- default-oraclelinux-rhel: [32m      should eq 0[0m
+I, [2016-06-23T13:20:24.045657 #8404]  INFO -- default-oraclelinux-rhel: 
+I, [2016-06-23T13:20:24.045741 #8404]  INFO -- default-oraclelinux-rhel: Finished in 0.38746 seconds (files took 0.68802 seconds to load)
+I, [2016-06-23T13:20:24.045806 #8404]  INFO -- default-oraclelinux-rhel: [32m3 examples, 0 failures[0m
+I, [2016-06-23T13:20:24.045869 #8404]  INFO -- default-oraclelinux-rhel: 
+I, [2016-06-23T13:20:24.176143 #8404]  INFO -- default-oraclelinux-rhel: Finished verifying <default-oraclelinux-rhel> (0m8.80s).
+I, [2016-06-23T13:20:24.177383 #8404]  INFO -- default-oraclelinux-rhel: -----> Destroying <default-oraclelinux-rhel>...
+I, [2016-06-23T13:20:24.405494 #8404]  INFO -- default-oraclelinux-rhel: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2016-06-23T13:20:24.405767 #8404]  INFO -- default-oraclelinux-rhel: root                8540                1021                0                   13:16               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2016-06-23T13:20:24.405855 #8404]  INFO -- default-oraclelinux-rhel: root                8575                8540                0                   13:16               ?                   00:00:00            sshd: kitchen@pts/0
+I, [2016-06-23T13:20:24.405925 #8404]  INFO -- default-oraclelinux-rhel: root                8982                8540                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.405988 #8404]  INFO -- default-oraclelinux-rhel: apache              8984                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406063 #8404]  INFO -- default-oraclelinux-rhel: apache              8985                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406147 #8404]  INFO -- default-oraclelinux-rhel: apache              8986                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406238 #8404]  INFO -- default-oraclelinux-rhel: apache              8987                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406304 #8404]  INFO -- default-oraclelinux-rhel: apache              8988                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406406 #8404]  INFO -- default-oraclelinux-rhel: apache              8989                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.406471 #8404]  INFO -- default-oraclelinux-rhel: apache              8990                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:24.409105 #8404]  INFO -- default-oraclelinux-rhel: apache              8991                8982                0                   13:20               ?                   00:00:00            /usr/sbin/httpd
+I, [2016-06-23T13:20:27.221751 #8404]  INFO -- default-oraclelinux-rhel: 0ab33eb9f0a83e24724c9fb3dcb8211ec0b7019478e52a9858a5d913faea2455
+I, [2016-06-23T13:20:29.197006 #8404]  INFO -- default-oraclelinux-rhel: 0ab33eb9f0a83e24724c9fb3dcb8211ec0b7019478e52a9858a5d913faea2455
+I, [2016-06-23T13:20:29.224746 #8404]  INFO -- default-oraclelinux-rhel: Finished destroying <default-oraclelinux-rhel> (0m5.04s).
+I, [2016-06-23T13:20:29.226011 #8404]  INFO -- default-oraclelinux-rhel: Finished testing <default-oraclelinux-rhel> (4m1.12s).
