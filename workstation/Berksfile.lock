@@ -1,0 +1,7 @@
+DEPENDENCIES
+  workstation
+    path: .
+    metadata: true
+
+GRAPH
+  workstation (0.1.0)

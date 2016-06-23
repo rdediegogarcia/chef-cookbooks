@@ -1,0 +1,19 @@
+FROM oraclelinux:7
+            RUN yum clean all
+            RUN yum install -y sudo openssh-server openssh-clients which curl
+            RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+            RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+
+          RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi
+          RUN echo kitchen:kitchen | chpasswd
+          RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+          RUN mkdir -p /etc/sudoers.d
+          RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
+          RUN chmod 0440 /etc/sudoers.d/kitchen
+          RUN [ ! -d /home/kitchen/.ssh ] && mkdir /home/kitchen/.ssh
+          RUN chown -R kitchen /home/kitchen/.ssh
+          RUN chmod 0700 /home/kitchen/.ssh
+          RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC06b/AWu1iKLHDQ9qsvYoqTGoYHh3PxP4Z9fI0PM+uj9quxZ0bZ+rE6pLyX3ttNpCsXpJkPLBWIGSlSRr+mSeJY1WMXh42K98rLOVvF5+olhZpMvpc1dNgrXeJuq+WNk/cfZLNzckT1NE0XAWoMLM6XS2RYBcsfWTLSEbqXkFwb+PlWt5OUxwP6ksF0upi+v5vfVPNSnAuvrMGQZGNwgg5fuZAXjQBuBsmMGW9ayoRmI70BK8HwQ0OYJGBNcR/wU1FZljs3Z0hfuyA9FDCbdpWRzOE2jGi8xgOQkWb0t8Qsx1bPt3uRY5IeQHUzj7oeFHWC2G7gw+3TxUzKqlRKo6b kitchen_docker_key' >> /home/kitchen/.ssh/authorized_keys
+          RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+          RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+

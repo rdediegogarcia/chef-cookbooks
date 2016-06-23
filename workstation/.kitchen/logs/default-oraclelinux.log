@@ -1,0 +1,12 @@
+I, [2016-06-23T09:20:45.989231 #19587]  INFO -- default-oraclelinux: -----> Creating <default-oraclelinux>...
+I, [2016-06-23T09:20:46.161999 #19587]  INFO -- default-oraclelinux: Sending build context to Docker daemon 54.27 kB
+I, [2016-06-23T09:20:46.165968 #19587]  INFO -- default-oraclelinux: Sending build context to Docker daemon 
+I, [2016-06-23T09:20:46.221156 #19587]  INFO -- default-oraclelinux: Step 0 : FROM oraclelinux:7
+I, [2016-06-23T09:20:46.521374 #19587]  INFO -- default-oraclelinux: 7: Pulling from oraclelinux
+I, [2016-06-23T09:20:46.523794 #19587]  INFO -- default-oraclelinux: 63e1c02817fc: Pulling fs layer
+I, [2016-06-23T09:20:46.526418 #19587]  INFO -- default-oraclelinux: 575e955ac1f9: Pulling fs layer
+I, [2016-06-23T09:20:46.526999 #19587]  INFO -- default-oraclelinux: 3690474eb5b4: Already exists
+I, [2016-06-23T09:20:46.615343 #19587]  INFO -- default-oraclelinux: 575e955ac1f9: Verifying Checksum
+I, [2016-06-23T09:20:46.616222 #19587]  INFO -- default-oraclelinux: 575e955ac1f9: Download complete
+I, [2016-06-23T09:20:52.091403 #19587]  INFO -- default-oraclelinux: 63e1c02817fc: Verifying Checksum
+I, [2016-06-23T09:20:52.092216 #19587]  INFO -- default-oraclelinux: 63e1c02817fc: Download complete
