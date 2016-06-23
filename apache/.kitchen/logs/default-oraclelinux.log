@@ -1,0 +1,205 @@
+I, [2016-06-23T10:03:13.930386 #23896]  INFO -- default-oraclelinux: -----> Creating <default-oraclelinux>...
+I, [2016-06-23T10:03:14.201923 #23896]  INFO -- default-oraclelinux: Sending build context to Docker daemon 28.16 kB
+I, [2016-06-23T10:03:14.202415 #23896]  INFO -- default-oraclelinux: Sending build context to Docker daemon 
+I, [2016-06-23T10:03:14.257859 #23896]  INFO -- default-oraclelinux: Step 0 : FROM oraclelinux:7
+I, [2016-06-23T10:03:14.260596 #23896]  INFO -- default-oraclelinux:  ---> 575e955ac1f9
+I, [2016-06-23T10:03:14.262831 #23896]  INFO -- default-oraclelinux: Step 1 : RUN yum clean all
+I, [2016-06-23T10:03:14.275982 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.277895 #23896]  INFO -- default-oraclelinux:  ---> e674dcba375e
+I, [2016-06-23T10:03:14.278490 #23896]  INFO -- default-oraclelinux: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2016-06-23T10:03:14.288794 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.289267 #23896]  INFO -- default-oraclelinux:  ---> e3c890e859b4
+I, [2016-06-23T10:03:14.289787 #23896]  INFO -- default-oraclelinux: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2016-06-23T10:03:14.299982 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.300534 #23896]  INFO -- default-oraclelinux:  ---> 17e92a7a65f8
+I, [2016-06-23T10:03:14.301015 #23896]  INFO -- default-oraclelinux: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2016-06-23T10:03:14.311063 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.311586 #23896]  INFO -- default-oraclelinux:  ---> 901cafa9e83a
+I, [2016-06-23T10:03:14.312033 #23896]  INFO -- default-oraclelinux: Step 5 : RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi
+I, [2016-06-23T10:03:14.322330 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.322778 #23896]  INFO -- default-oraclelinux:  ---> 62ff50c1e67a
+I, [2016-06-23T10:03:14.323220 #23896]  INFO -- default-oraclelinux: Step 6 : RUN echo kitchen:kitchen | chpasswd
+I, [2016-06-23T10:03:14.333212 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.333646 #23896]  INFO -- default-oraclelinux:  ---> b7fd25638eef
+I, [2016-06-23T10:03:14.334074 #23896]  INFO -- default-oraclelinux: Step 7 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2016-06-23T10:03:14.344139 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.344647 #23896]  INFO -- default-oraclelinux:  ---> 70e262772cf4
+I, [2016-06-23T10:03:14.345086 #23896]  INFO -- default-oraclelinux: Step 8 : RUN mkdir -p /etc/sudoers.d
+I, [2016-06-23T10:03:14.355116 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.355577 #23896]  INFO -- default-oraclelinux:  ---> 132323ceae91
+I, [2016-06-23T10:03:14.356024 #23896]  INFO -- default-oraclelinux: Step 9 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
+I, [2016-06-23T10:03:14.365935 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.366556 #23896]  INFO -- default-oraclelinux:  ---> b628c4d5df1d
+I, [2016-06-23T10:03:14.367007 #23896]  INFO -- default-oraclelinux: Step 10 : RUN chmod 0440 /etc/sudoers.d/kitchen
+I, [2016-06-23T10:03:14.385875 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.386501 #23896]  INFO -- default-oraclelinux:  ---> 4ecb612189cf
+I, [2016-06-23T10:03:14.386957 #23896]  INFO -- default-oraclelinux: Step 11 : RUN [ ! -d /home/kitchen/.ssh ] && mkdir /home/kitchen/.ssh
+I, [2016-06-23T10:03:14.398149 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.398644 #23896]  INFO -- default-oraclelinux:  ---> 3ad146a211e1
+I, [2016-06-23T10:03:14.399491 #23896]  INFO -- default-oraclelinux: Step 12 : RUN chown -R kitchen /home/kitchen/.ssh
+I, [2016-06-23T10:03:14.409158 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.409604 #23896]  INFO -- default-oraclelinux:  ---> 8b9887925c29
+I, [2016-06-23T10:03:14.410051 #23896]  INFO -- default-oraclelinux: Step 13 : RUN chmod 0700 /home/kitchen/.ssh
+I, [2016-06-23T10:03:14.418988 #23896]  INFO -- default-oraclelinux:  ---> Using cache
+I, [2016-06-23T10:03:14.419535 #23896]  INFO -- default-oraclelinux:  ---> 4e210feb2acd
+I, [2016-06-23T10:03:14.420002 #23896]  INFO -- default-oraclelinux: Step 14 : RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrP9UbKzyNzwvmdcgTQxPzEsxOFbyIkYXA3JseGBLSXzkjPjT+Rbv6UgKJye+x+IbLldySUVDxeuTWm+UHEGdHJqOipLgK4vcvXe769uG1t60kMGE87+eXzlIF3jAmjYOEZY5AZc5XpAQC+8cX/W3x49wOVszBP8+gae3egVqSsmfmlaWvKehFFt5caMPIYo2bHv5ZX+yBEiQjzFJTEGT8vFWd/02Et/GTUKw2Id9q8ktXVeeGu3sX+0UinMdRMVvXg6urI2q2k93b0pORAd1HDdJ2HWxil8tGpupYNo649+IRb5T8iI8wbDf2ffLMy8AgIOq3/sNmH/ZQurknO+bL kitchen_docker_key' >> /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T10:03:14.688884 #23896]  INFO -- default-oraclelinux:  ---> Running in 94b6774e634a
+I, [2016-06-23T10:03:18.386073 #23896]  INFO -- default-oraclelinux:  ---> ae50723f2568
+I, [2016-06-23T10:03:20.216940 #23896]  INFO -- default-oraclelinux: Removing intermediate container 94b6774e634a
+I, [2016-06-23T10:03:20.217916 #23896]  INFO -- default-oraclelinux: Step 15 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T10:03:20.442883 #23896]  INFO -- default-oraclelinux:  ---> Running in 8fdebe12025e
+I, [2016-06-23T10:03:24.002110 #23896]  INFO -- default-oraclelinux:  ---> 1fa4212453be
+I, [2016-06-23T10:03:25.797302 #23896]  INFO -- default-oraclelinux: Removing intermediate container 8fdebe12025e
+I, [2016-06-23T10:03:25.797906 #23896]  INFO -- default-oraclelinux: Step 16 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+I, [2016-06-23T10:03:25.996769 #23896]  INFO -- default-oraclelinux:  ---> Running in dd0ae34f659a
+I, [2016-06-23T10:03:29.495605 #23896]  INFO -- default-oraclelinux:  ---> cb202ee4ef0a
+I, [2016-06-23T10:03:31.324488 #23896]  INFO -- default-oraclelinux: Removing intermediate container dd0ae34f659a
+I, [2016-06-23T10:03:31.325174 #23896]  INFO -- default-oraclelinux: Successfully built cb202ee4ef0a
+I, [2016-06-23T10:03:31.642112 #23896]  INFO -- default-oraclelinux: f83f1805d9d475fb37166c8d26cf6c88f57bc66bfc07631c29a1ae7fabf151ed
+I, [2016-06-23T10:03:32.374785 #23896]  INFO -- default-oraclelinux: 0.0.0.0:32772
+I, [2016-06-23T10:03:32.410649 #23896]  INFO -- default-oraclelinux: Waiting for SSH service on localhost:32772, retrying in 3 seconds
+I, [2016-06-23T10:03:35.596893 #23896]  INFO -- default-oraclelinux: [SSH] Established
+I, [2016-06-23T10:03:35.602252 #23896]  INFO -- default-oraclelinux: Finished creating <default-oraclelinux> (0m21.67s).
+I, [2016-06-23T10:03:35.602555 #23896]  INFO -- default-oraclelinux: -----> Converging <default-oraclelinux>...
+W, [2016-06-23T10:03:35.604099 #23896]  WARN -- default-oraclelinux: Running legacy converge for 'Docker' Driver
+I, [2016-06-23T10:03:35.604713 #23896]  INFO -- default-oraclelinux: Preparing files for transfer
+I, [2016-06-23T10:03:35.604904 #23896]  INFO -- default-oraclelinux: Preparing dna.json
+I, [2016-06-23T10:03:35.605691 #23896]  INFO -- default-oraclelinux: Resolving cookbook dependencies with Berkshelf 4.1.1...
+I, [2016-06-23T10:03:39.488594 #23896]  INFO -- default-oraclelinux: Removing non-cookbook files before transfer
+I, [2016-06-23T10:03:39.492441 #23896]  INFO -- default-oraclelinux: Preparing validation.pem
+I, [2016-06-23T10:03:39.494529 #23896]  INFO -- default-oraclelinux: Preparing client.rb
+I, [2016-06-23T10:03:39.674282 #23896]  INFO -- default-oraclelinux: -----> Installing Chef Omnibus (install only if missing)
+I, [2016-06-23T10:03:39.687790 #23896]  INFO -- default-oraclelinux: Downloading https://www.chef.io/chef/install.sh to file /tmp/install.sh
+I, [2016-06-23T10:03:39.689641 #23896]  INFO -- default-oraclelinux: Trying curl...
+I, [2016-06-23T10:03:40.184042 #23896]  INFO -- default-oraclelinux: Download complete.
+I, [2016-06-23T10:03:40.269046 #23896]  INFO -- default-oraclelinux: el 7 x86_64
+I, [2016-06-23T10:03:40.270829 #23896]  INFO -- default-oraclelinux: Getting information for chef stable  for el...
+I, [2016-06-23T10:03:40.270948 #23896]  INFO -- default-oraclelinux: downloading https://omnitruck-direct.chef.io/stable/chef/metadata?v=&p=el&pv=7&m=x86_64
+I, [2016-06-23T10:03:40.271015 #23896]  INFO -- default-oraclelinux:   to file /tmp/install.sh.30/metadata.txt
+I, [2016-06-23T10:03:40.273662 #23896]  INFO -- default-oraclelinux: trying curl...
+I, [2016-06-23T10:03:40.905152 #23896]  INFO -- default-oraclelinux: sha1	4b0ecd14127fe6d0e5423f78a733ce43db1814c7
+I, [2016-06-23T10:03:40.905349 #23896]  INFO -- default-oraclelinux: sha256	a5d5db51eb57cdb0045953f4007f10bf50199c40c0d89c41272cf171d56b6c53
+I, [2016-06-23T10:03:40.905414 #23896]  INFO -- default-oraclelinux: url	https://packages.chef.io/stable/el/7/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T10:03:40.906803 #23896]  INFO -- default-oraclelinux: version	12.11.18
+I, [2016-06-23T10:03:40.914930 #23896]  INFO -- default-oraclelinux: downloaded metadata file looks valid...
+I, [2016-06-23T10:03:40.967015 #23896]  INFO -- default-oraclelinux: downloading https://packages.chef.io/stable/el/7/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T10:03:40.967154 #23896]  INFO -- default-oraclelinux:   to file /tmp/install.sh.30/chef-12.11.18-1.el7.x86_64.rpm
+I, [2016-06-23T10:03:40.969648 #23896]  INFO -- default-oraclelinux: trying curl...
+I, [2016-06-23T10:03:44.548010 #23896]  INFO -- default-oraclelinux: Comparing checksum with sha256sum...
+I, [2016-06-23T10:03:45.172286 #23896]  INFO -- default-oraclelinux: 
+I, [2016-06-23T10:03:45.172439 #23896]  INFO -- default-oraclelinux: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-06-23T10:03:45.172504 #23896]  INFO -- default-oraclelinux: 
+I, [2016-06-23T10:03:45.172564 #23896]  INFO -- default-oraclelinux: You are installing an omnibus package without a version pin.  If you are installing
+I, [2016-06-23T10:03:45.172623 #23896]  INFO -- default-oraclelinux: on production servers via an automated process this is DANGEROUS and you will
+I, [2016-06-23T10:03:45.172706 #23896]  INFO -- default-oraclelinux: be upgraded without warning on new releases, even to new major releases.
+I, [2016-06-23T10:03:45.172762 #23896]  INFO -- default-oraclelinux: Letting the version float is only appropriate in desktop, test, development or
+I, [2016-06-23T10:03:45.172817 #23896]  INFO -- default-oraclelinux: CI/CD environments.
+I, [2016-06-23T10:03:45.172870 #23896]  INFO -- default-oraclelinux: 
+I, [2016-06-23T10:03:45.172923 #23896]  INFO -- default-oraclelinux: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-06-23T10:03:45.172977 #23896]  INFO -- default-oraclelinux: 
+I, [2016-06-23T10:03:45.173031 #23896]  INFO -- default-oraclelinux: Installing chef 
+I, [2016-06-23T10:03:45.173083 #23896]  INFO -- default-oraclelinux: installing with rpm...
+I, [2016-06-23T10:03:46.745079 #23896]  INFO -- default-oraclelinux: warning: /tmp/install.sh.30/chef-12.11.18-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+I, [2016-06-23T10:03:47.217080 #23896]  INFO -- default-oraclelinux: Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+I, [2016-06-23T10:03:47.256141 #23896]  INFO -- default-oraclelinux: Updating / installing...
+I, [2016-06-23T10:03:54.171209 #23896]  INFO -- default-oraclelinux:    1:chef-12.11.18-1.el7                                                (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 51%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+I, [2016-06-23T10:03:56.247076 #23896]  INFO -- default-oraclelinux: Thank you for installing Chef!
+I, [2016-06-23T10:03:56.582704 #23896]  INFO -- default-oraclelinux: Transferring files to <default-oraclelinux>
+I, [2016-06-23T10:04:00.885132 #23896]  INFO -- default-oraclelinux: Starting Chef Client, version 12.11.18
+I, [2016-06-23T10:04:05.576165 #23896]  INFO -- default-oraclelinux: Creating a new client identity for default-oraclelinux using the validator key.
+I, [2016-06-23T10:04:05.785080 #23896]  INFO -- default-oraclelinux: resolving cookbooks for run list: ["apache::default"]
+I, [2016-06-23T10:04:05.839071 #23896]  INFO -- default-oraclelinux: Synchronizing Cookbooks:
+I, [2016-06-23T10:04:05.858991 #23896]  INFO -- default-oraclelinux:   - apache (0.1.0)
+I, [2016-06-23T10:04:05.859124 #23896]  INFO -- default-oraclelinux: Installing Cookbook Gems:
+I, [2016-06-23T10:04:05.860787 #23896]  INFO -- default-oraclelinux: Compiling Cookbooks...
+I, [2016-06-23T10:04:05.871720 #23896]  INFO -- default-oraclelinux: Converging 3 resources
+I, [2016-06-23T10:04:05.873723 #23896]  INFO -- default-oraclelinux: Recipe: apache::server
+I, [2016-06-23T10:04:42.339282 #23896]  INFO -- default-oraclelinux:   * yum_package[httpd] action install
+I, [2016-06-23T10:04:42.339536 #23896]  INFO -- default-oraclelinux:     - install version 2.4.6-40.0.1.el7_2.1 of package httpd
+I, [2016-06-23T10:04:42.367850 #23896]  INFO -- default-oraclelinux:   * file[/var/www/html/index.html] action create
+I, [2016-06-23T10:04:42.425046 #23896]  INFO -- default-oraclelinux:     - create new file /var/www/html/index.html
+I, [2016-06-23T10:04:42.425169 #23896]  INFO -- default-oraclelinux:     - update content in file /var/www/html/index.html from none to c13768
+I, [2016-06-23T10:04:42.425254 #23896]  INFO -- default-oraclelinux:     --- /var/www/html/index.html	2016-06-23 10:04:42.366173724 +0000
+I, [2016-06-23T10:04:42.425314 #23896]  INFO -- default-oraclelinux:     +++ /var/www/html/.chef-index.html20160623-149-2zrjlt	2016-06-23 10:04:42.364173724 +0000
+I, [2016-06-23T10:04:42.425369 #23896]  INFO -- default-oraclelinux:     @@ -1 +1,2 @@
+I, [2016-06-23T10:04:42.496199 #23896]  INFO -- default-oraclelinux:     +<h1>Hello World! (created by Chef)</h1>
+I, [2016-06-23T10:04:42.981069 #23896]  INFO -- default-oraclelinux:   * service[httpd] action enable
+I, [2016-06-23T10:04:43.062217 #23896]  INFO -- default-oraclelinux:     * service[httpd]: Service is not known to chkconfig.
+I, [2016-06-23T10:04:43.062373 #23896]  INFO -- default-oraclelinux:     ================================================================================
+I, [2016-06-23T10:04:43.062464 #23896]  INFO -- default-oraclelinux:     Error executing action `enable` on resource 'service[httpd]'
+I, [2016-06-23T10:04:43.062528 #23896]  INFO -- default-oraclelinux:     ================================================================================
+I, [2016-06-23T10:04:43.062583 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.062641 #23896]  INFO -- default-oraclelinux:     Chef::Exceptions::Service
+I, [2016-06-23T10:04:43.062697 #23896]  INFO -- default-oraclelinux:     -------------------------
+I, [2016-06-23T10:04:43.062751 #23896]  INFO -- default-oraclelinux:     service[httpd]: Service is not known to chkconfig.
+I, [2016-06-23T10:04:43.062805 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.062874 #23896]  INFO -- default-oraclelinux:     Resource Declaration:
+I, [2016-06-23T10:04:43.062931 #23896]  INFO -- default-oraclelinux:     ---------------------
+I, [2016-06-23T10:04:43.062985 #23896]  INFO -- default-oraclelinux:     # In /tmp/kitchen/cache/cookbooks/apache/recipes/server.rb
+I, [2016-06-23T10:04:43.063037 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.063117 #23896]  INFO -- default-oraclelinux:      16: service 'httpd' do
+I, [2016-06-23T10:04:43.063170 #23896]  INFO -- default-oraclelinux:      17:   action [ :enable, :start ]
+I, [2016-06-23T10:04:43.065158 #23896]  INFO -- default-oraclelinux:      18: end
+I, [2016-06-23T10:04:43.065249 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.065307 #23896]  INFO -- default-oraclelinux:     Compiled Resource:
+I, [2016-06-23T10:04:43.065359 #23896]  INFO -- default-oraclelinux:     ------------------
+I, [2016-06-23T10:04:43.066851 #23896]  INFO -- default-oraclelinux:     # Declared in /tmp/kitchen/cache/cookbooks/apache/recipes/server.rb:16:in `from_file'
+I, [2016-06-23T10:04:43.066925 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.066981 #23896]  INFO -- default-oraclelinux:     service("httpd") do
+I, [2016-06-23T10:04:43.067034 #23896]  INFO -- default-oraclelinux:       action [:enable, :start]
+I, [2016-06-23T10:04:43.067087 #23896]  INFO -- default-oraclelinux:       supports {:restart=>nil, :reload=>nil, :status=>nil}
+I, [2016-06-23T10:04:43.067139 #23896]  INFO -- default-oraclelinux:       retries 0
+I, [2016-06-23T10:04:43.067207 #23896]  INFO -- default-oraclelinux:       retry_delay 2
+I, [2016-06-23T10:04:43.067264 #23896]  INFO -- default-oraclelinux:       default_guard_interpreter :default
+I, [2016-06-23T10:04:43.067318 #23896]  INFO -- default-oraclelinux:       service_name "httpd"
+I, [2016-06-23T10:04:43.067370 #23896]  INFO -- default-oraclelinux:       pattern "httpd"
+I, [2016-06-23T10:04:43.067423 #23896]  INFO -- default-oraclelinux:       declared_type :service
+I, [2016-06-23T10:04:43.067475 #23896]  INFO -- default-oraclelinux:       cookbook_name "apache"
+I, [2016-06-23T10:04:43.067551 #23896]  INFO -- default-oraclelinux:       recipe_name "server"
+I, [2016-06-23T10:04:43.067603 #23896]  INFO -- default-oraclelinux:     end
+I, [2016-06-23T10:04:43.068286 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.071228 #23896]  INFO -- default-oraclelinux:     Platform:
+I, [2016-06-23T10:04:43.071305 #23896]  INFO -- default-oraclelinux:     ---------
+I, [2016-06-23T10:04:43.071361 #23896]  INFO -- default-oraclelinux:     x86_64-linux
+I, [2016-06-23T10:04:43.071413 #23896]  INFO -- default-oraclelinux:     
+I, [2016-06-23T10:04:43.073682 #23896]  INFO -- default-oraclelinux: 
+I, [2016-06-23T10:04:43.073758 #23896]  INFO -- default-oraclelinux: Running handlers:
+I, [2016-06-23T10:04:43.074777 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] ERROR: Running exception handlers
+I, [2016-06-23T10:04:43.076148 #23896]  INFO -- default-oraclelinux: Running handlers complete
+I, [2016-06-23T10:04:43.077797 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] ERROR: Exception handlers complete
+I, [2016-06-23T10:04:43.208092 #23896]  INFO -- default-oraclelinux: Chef Client failed. 2 resources updated in 42 seconds
+I, [2016-06-23T10:04:43.210786 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] FATAL: Stacktrace dumped to /tmp/kitchen/cache/chef-stacktrace.out
+I, [2016-06-23T10:04:43.210866 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+I, [2016-06-23T10:04:43.210928 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] ERROR: service[httpd] (apache::server line 16) had an error: Chef::Exceptions::Service: service[httpd]: Service is not known to chkconfig.
+I, [2016-06-23T10:04:43.906290 #23896]  INFO -- default-oraclelinux: [2016-06-23T10:04:43+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+E, [2016-06-23T10:04:44.107723 #23896] ERROR -- default-oraclelinux: Converge failed on instance <default-oraclelinux>.
+E, [2016-06-23T10:04:44.109116 #23896] ERROR -- default-oraclelinux: ------Exception-------
+E, [2016-06-23T10:04:44.109198 #23896] ERROR -- default-oraclelinux: Class: Kitchen::ActionFailed
+E, [2016-06-23T10:04:44.109252 #23896] ERROR -- default-oraclelinux: Message: SSH exited (1) for command: [sh -c '
+
+sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level warn --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889
+']
+E, [2016-06-23T10:04:44.109300 #23896] ERROR -- default-oraclelinux: ---Nested Exception---
+E, [2016-06-23T10:04:44.109345 #23896] ERROR -- default-oraclelinux: Class: Kitchen::Transport::SshFailed
+E, [2016-06-23T10:04:44.109389 #23896] ERROR -- default-oraclelinux: Message: SSH exited (1) for command: [sh -c '
+
+sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level warn --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889
+']
+E, [2016-06-23T10:04:44.109434 #23896] ERROR -- default-oraclelinux: ------Backtrace-------
+E, [2016-06-23T10:04:44.109478 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/driver/ssh_base.rb:85:in `rescue in converge'
+E, [2016-06-23T10:04:44.109523 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/driver/ssh_base.rb:88:in `converge'
+E, [2016-06-23T10:04:44.109568 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:547:in `legacy_ssh_base_converge'
+E, [2016-06-23T10:04:44.109612 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:371:in `block in converge_action'
+E, [2016-06-23T10:04:44.109661 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:495:in `call'
+E, [2016-06-23T10:04:44.109724 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:495:in `synchronize_or_call'
+E, [2016-06-23T10:04:44.109774 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:460:in `block in action'
+E, [2016-06-23T10:04:44.109836 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2016-06-23T10:04:44.109915 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:459:in `action'
+E, [2016-06-23T10:04:44.109967 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:369:in `converge_action'
+E, [2016-06-23T10:04:44.110017 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:348:in `block in transition_to'
+E, [2016-06-23T10:04:44.110063 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:347:in `each'
+E, [2016-06-23T10:04:44.110132 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:347:in `transition_to'
+E, [2016-06-23T10:04:44.110191 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/instance.rb:160:in `verify'
+E, [2016-06-23T10:04:44.110244 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/command.rb:176:in `public_send'
+E, [2016-06-23T10:04:44.110290 #23896] ERROR -- default-oraclelinux: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.5.0/lib/kitchen/command.rb:176:in `block (2 levels) in run_action'
+E, [2016-06-23T10:04:44.110350 #23896] ERROR -- default-oraclelinux: ----------------------
